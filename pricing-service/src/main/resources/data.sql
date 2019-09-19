@@ -1,0 +1,13 @@
+INSERT INTO price (id,currency, price) VALUES (1, 'USD', '6139.30');
+INSERT INTO price (id,currency, price) VALUES (2,'USD','9315.71');
+INSERT INTO price (id,currency, price) VALUES (3,'USD','8893.90');
+INSERT INTO price (id,currency, price) VALUES (4,'USD','5702.70');
+INSERT INTO price (id,currency, price) VALUES (5,'USD','11223.88');
+INSERT INTO price (id,currency, price) VALUES (6,'USD','9458.54');
+INSERT INTO price (id,currency, price) VALUES (7,'USD','20558.83');
+INSERT INTO price (id,currency, price) VALUES (8,'USD','23401.66');
+INSERT INTO price (id,currency, price) VALUES (9,'USD','17875.05');
+INSERT INTO price (id,currency, price) VALUES (10,'USD','20204.07');
+INSERT INTO price (id,currency, price) VALUES (11,'USD','19584.23');
+INSERT INTO price (id,currency, price) VALUES (12,'USD','23943.36');
+INSERT INTO price (id,currency, price) VALUES (13,'USD','9833.02');
