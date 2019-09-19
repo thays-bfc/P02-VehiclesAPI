@@ -24,7 +24,7 @@ public class CarService {
 
     public CarService(CarRepository repository, PriceClient priceClient, MapsClient  mapsClient) {
         /**
-         * TO DO: Add the Maps and Pricing Web Clients you create
+         * Add the Maps and Pricing Web Clients you create
          *   in `VehiclesApiApplication` as arguments and set them here.
          */
         this.repository  = repository;
@@ -49,9 +49,7 @@ public class CarService {
         /**
          *  Find the car by ID from the `repository` if it exists.
          *   If it does not exist, throw a CarNotFoundException
-         *   Remove the below code as part of your implementation.
          */
-       // Car car = new Car();
         Optional<Car> carOptional = this.repository.findById(id);
         if (!carOptional.isPresent())
             throw new CarNotFoundException("Car not found");
@@ -113,7 +111,6 @@ public class CarService {
 
         /**
          * Delete the car from the repository.
-         * TODO Do I need to return a message?
          */
         this.repository.deleteById(id);
 

@@ -59,8 +59,8 @@ class CarController {
     @GetMapping("/{id}")
     Resource<Car> get(@PathVariable Long id) {
         /**
-         * TO DO: Use the `findById` method from the Car Service to get car information.
-         * TO DO: Use the `assembler` on that car and return the resulting output.
+         * Use the `findById` method from the Car Service to get car information.
+         * Use the `assembler` on that car and return the resulting output.
          *   Update the first line as part of the above implementing.
          */
         Car car = carService.findById(id);
@@ -76,13 +76,12 @@ class CarController {
     @PostMapping
     ResponseEntity<?> post(@Valid @RequestBody Car car) throws URISyntaxException {
         /**
-         * TO DO: Use the `save` method from the Car Service to save the input car.
-         * TO DO: Use the `assembler` on that saved car and return as part of the response.
+         * Use the `save` method from the Car Service to save the input car.
+         * Use the `assembler` on that saved car and return as part of the response.
          *   Update the first line as part of the above implementing.
          *   TODO Do I have to check if the ID is already in use? Or the application creates a new ID?
          */
         car = carService.save(car);
-//        Resource<Car> resource = assembler.toResource(new Car());
         Resource<Car> resource = assembler.toResource(car);
         return ResponseEntity.created(new URI(resource.getId().expand().getHref())).body(resource);
     }
@@ -96,10 +95,9 @@ class CarController {
     @PutMapping("/{id}")
     ResponseEntity<?> put(@PathVariable Long id, @Valid @RequestBody Car car) {
         /**
-         * TO DO: Set the id of the input car object to the `id` input.
-         * TO DO: Save the car using the `save` method from the Car service
-         * TO DO: Use the `assembler` on that updated car and return as part of the response.
-         *   Update the first line as part of the above implementing.
+         * Set the id of the input car object to the `id` input.
+         * Save the car using the `save` method from the Car service
+         * Use the `assembler` on that updated car and return as part of the response.
          */
          car.setId(id);
          car = this.carService.save(car);
@@ -115,7 +113,7 @@ class CarController {
     @DeleteMapping("/{id}")
     ResponseEntity<?> delete(@PathVariable Long id) {
         /**
-         * TO DO: Use the Car Service to delete the requested vehicle.
+         * Use the Car Service to delete the requested vehicle.
          */
         this.carService.delete(id);
         return ResponseEntity.noContent().build();
