@@ -96,11 +96,13 @@ public class CarControllerTest {
          * Add a test to check that the `get` method works by calling
          *   the whole list of vehicles. This should utilize the car from `getCar()`
          *   below (the vehicle will be the first in the list).
-         *   TODO: Check if this is right.
          */
-        mvc.perform(get(new URI("/cars")))
+        mvc.perform(get(new URI("/cars"))
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .accept(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.carList[0].id").value(1L));
+                .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.carList[0].id")
+                        .value(1L));
 
     }
 
@@ -114,9 +116,10 @@ public class CarControllerTest {
          * Add a test to check that the `get` method works by calling
          *   a vehicle by ID. This should utilize the car from `getCar()` below.
          */
-        mvc.perform(get(new URI("/cars/1")))
+        mvc.perform(get(new URI("/cars/1"))
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(1L))
                 .andExpect(status().isOk());
-//        .andExpect(MockMvcResultMatchers.jsonPath("$.details
 
         verify(carService, times(1)).findById(1L);
     }
@@ -150,6 +153,7 @@ public class CarControllerTest {
                 .content(json.write(car).getJson())
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .accept(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(1L))
                 .andExpect(status().isOk());
     }
 

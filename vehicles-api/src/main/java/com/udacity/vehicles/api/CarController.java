@@ -79,7 +79,6 @@ class CarController {
          * Use the `save` method from the Car Service to save the input car.
          * Use the `assembler` on that saved car and return as part of the response.
          *   Update the first line as part of the above implementing.
-         *   TODO Do I have to check if the ID is already in use? Or the application creates a new ID?
          */
         car = carService.save(car);
         Resource<Car> resource = assembler.toResource(car);
